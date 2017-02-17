@@ -27,6 +27,16 @@ namespace Lab1Triangles
             int count = Convert.ToInt32(Console.ReadLine());
             ArrayOfTriangles(count);
 
+            //=================================================================
+            Console.WriteLine("Введите количество углов в многоугольнике: ");
+            int size = Convert.ToInt32(Console.ReadLine());
+            Point[] arrPoint = ArrayOfPoints(size);
+            Polygon poligon = new Polygon(arrPoint);
+            PrintPolygon(arrPoint);
+
+            Console.WriteLine(poligon.Perimeter);
+            Console.WriteLine(poligon.Area);
+
             Console.Read();
 
         }
@@ -67,6 +77,31 @@ namespace Lab1Triangles
                 Console.WriteLine("Средняя площадь равнобедренных треугольников = 0");
 
             
+        }
+
+        static Point[] ArrayOfPoints(int size)//===================================================
+        {
+            Point[] arrPoint = new Point[size];
+
+            for (int i = 0; i < size; i++)
+            {
+                int j = i + 1;
+                Console.WriteLine("Введите координаты " + j + "-ой точки: ");
+                int x = Convert.ToInt32(Console.ReadLine());
+                int y = Convert.ToInt32(Console.ReadLine());
+                arrPoint[i] = new Point(x, y);
+            }
+            return arrPoint;
+        }
+
+        static void PrintPolygon(Point[] arrPoint)//=============================================================
+        {
+            int size = arrPoint.Length;
+            for (int i = 0; i < size; i++)
+            {
+                int j = i + 1;
+                Console.WriteLine(j + "-я точка: (" + arrPoint[i].X + ", " + arrPoint[i].Y + ")");
+            }
         }
     }
 }
