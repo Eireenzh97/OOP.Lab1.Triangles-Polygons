@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace Lab1Triangles
 {
-    class Program
+    class Point
     {
-        static void Main(string[] args)
+        public int X;
+        public int Y;
+
+        public Point(int x, int y)
         {
+            this.X = x;
+            this.Y = y;
         }
     }
 }
