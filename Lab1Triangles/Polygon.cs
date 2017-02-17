@@ -24,7 +24,7 @@ namespace Lab1Triangles
             }
             edgeMas[size - 1] = new Edge(pointMas[size - 1], pointMas[0]); //последнее ребро соединяет первую и последнюю точку 
 
-            this.length = new double[size]; 
+            this.length = new double[size];
             for (int i = 0; i < size; i++)
             {
                 length[i] = edgeMas[i].Length;
@@ -33,13 +33,38 @@ namespace Lab1Triangles
                     Console.WriteLine("Ваш многоугольник не существует");
                 }
             }
-
-            
         }
 
+        public double Perimeter//=======================================================================================
+        {
+            get
+            {
+                double perimeter = 0;
+                for (int i = 0; i < size; i++)
+                    perimeter = perimeter + length[i];
+                return perimeter;
+            }
+        }
+
+        public double Area//===========================================================================================
+        {
+            get
+            {
+                double area = 0;
+                for (int i = 0; i < size - 1; i++)
+                {
+                    area += (pointMas[i].X * pointMas[i + 1].Y - pointMas[i].Y * pointMas[i + 1].X);
+                }
+                area += (pointMas[size - 1].X * pointMas[0].Y - pointMas[size - 1].Y * pointMas[0].X);
+                return Math.Abs(area / 2);
+            }
+        }
     }
 
+
+}
+}
         
 
-    }
-}
+    
+
