@@ -30,12 +30,12 @@ namespace Lab1Triangles
             //=================================================================
             Console.WriteLine("Введите количество углов в многоугольнике: ");
             int size = Convert.ToInt32(Console.ReadLine());
-            Point[] arrPoint = ArrayOfPoints(size);
-            Polygon poligon = new Polygon(arrPoint);
+            Point[] ArrPoint = ArrayOfPoints(size);
+            Polygon polygon = new Polygon(ArrPoint);
             PrintPolygon(arrPoint);
 
-            Console.WriteLine(poligon.Perimeter);
-            Console.WriteLine(poligon.Area);
+            Console.WriteLine(polygon.Perimeter);
+            Console.WriteLine(polygon.Area);
 
             Console.Read();
 
@@ -43,9 +43,9 @@ namespace Lab1Triangles
 
         static void ArrayOfTriangles(int count) //=================================================================================
         {
-            Triangle[] arrTriangle = new Triangle[count];
+            Triangle[] ArrTriangle = new Triangle[count];
             double TrPerimeter = 0, TrArea = 0;
-            int countRight = 0, countIsosceles = 0;
+            int CountRight = 0, CountIsosceles = 0;
             for (int i = 0; i < count; i++)
             {
                 //Point p1 = new Point(0, 5);
@@ -58,27 +58,27 @@ namespace Lab1Triangles
                 Point p2 = new Point(ira.Next(0, 20), ira.Next(0, 20));
                 Point p3 = new Point(ira.Next(0, 20), ira.Next(0, 20));
 
-                arrTriangle[i] = new Triangle(p1, p2, p3);
+                ArrTriangle[i] = new Triangle(p1, p2, p3);
 
-                if (arrTriangle[i].IsRight)
+                if (ArrTriangle[i].IsRight)
                 {
-                    TrPerimeter = TrPerimeter + arrTriangle[i].Perimeter;
-                    countRight++;
+                    TrPerimeter = TrPerimeter + ArrTriangle[i].Perimeter;
+                    CountRight++;
                 }
-                if (arrTriangle[i].IsIsosceles)
+                if (ArrTriangle[i].IsIsosceles)
                 {
-                    TrArea = TrArea + arrTriangle[i].Area;
-                    countIsosceles++;
+                    TrArea = TrArea + ArrTriangle[i].Area;
+                    CountIsosceles++;
                 }
             }
 
-            if (countRight != 0)
-                Console.WriteLine("Средний периметр прямоугольных треугольников = {0}", TrPerimeter/countRight);
+            if (CountRight != 0)
+                Console.WriteLine("Средний периметр прямоугольных треугольников = {0}", TrPerimeter/CountRight);
             else
                 Console.WriteLine("Средний периметр прямоугольных треугольников = 0");
 
-            if (countIsosceles != 0)
-                Console.WriteLine("Средняя площадь равнобедренных треугольников {0}", TrArea/countIsosceles);
+            if (CountIsosceles != 0)
+                Console.WriteLine("Средняя площадь равнобедренных треугольников {0}", TrArea/CountIsosceles);
             else
                 Console.WriteLine("Средняя площадь равнобедренных треугольников = 0");
 
@@ -87,7 +87,7 @@ namespace Lab1Triangles
 
         static Point[] ArrayOfPoints(int size)//===================================================
         {
-            Point[] arrPoint = new Point[size];
+            Point[] ArrPoint = new Point[size];
 
             for (int i = 0; i < size; i++)
             {
@@ -95,18 +95,18 @@ namespace Lab1Triangles
                 Console.WriteLine("Введите координаты " + j + "-ой точки: ");
                 int x = Convert.ToInt32(Console.ReadLine());
                 int y = Convert.ToInt32(Console.ReadLine());
-                arrPoint[i] = new Point(x, y);
+                ArrPoint[i] = new Point(x, y);
             }
-            return arrPoint;
+            return ArrPoint;
         }
 
-        static void PrintPolygon(Point[] arrPoint)//=============================================================
+        static void PrintPolygon(Point[] ArrPoint)//=============================================================
         {
-            int size = arrPoint.Length;
+            int size = ArrPoint.Length;
             for (int i = 0; i < size; i++)
             {
                 int j = i + 1;
-                Console.WriteLine(j + "-я точка: (" + arrPoint[i].X + ", " + arrPoint[i].Y + ")");
+                Console.WriteLine(j + "-я точка: (" + ArrPoint[i].X + ", " + ArrPoint[i].Y + ")");
             }
         }
     }
