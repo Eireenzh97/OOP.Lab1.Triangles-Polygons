@@ -48,9 +48,15 @@ namespace Lab1Triangles
             int countRight = 0, countIsosceles = 0;
             for (int i = 0; i < count; i++)
             {
-                Point p1 = new Point(0, 5);
-                Point p2 = new Point(5, 5);
-                Point p3 = new Point(0, 0);
+                //Point p1 = new Point(0, 5);
+               // Point p2 = new Point(5, 5);
+                //Point p3 = new Point(0, 0);
+                
+                Random ira = new Random();
+                
+                Point p1 = new Point(ira.Next, ira.Next);
+                Point p2 = new Point(ira.Next, ira.Next);
+                Point p3 = new Point(ira.Next, ira.Next);
 
                 arrTriangle[i] = new Triangle(p1, p2, p3);
 
