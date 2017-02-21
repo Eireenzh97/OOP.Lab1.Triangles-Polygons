@@ -8,26 +8,26 @@ namespace Lab1Triangles
 {
     class Polygon
     {
-        public Point[] pointMas;
+        public Point[] PointMas;
         private int size;
         private double[] length;
 
         public Polygon(Point[] pointArray)
         {
-            pointMas = pointArray;
-            size = pointMas.Length;
+            PointMas = PointArray;
+            size = PointMas.Length;
 
-            Edge[] edgeMas = new Edge[size]; //сколько точек создали, столько и рёбер
+            Edge[] EdgeMas = new Edge[size]; //сколько точек создали, столько и рёбер
             for (int i = 0; i < size - 1; i++)
             {
-                edgeMas[i] = new Edge(pointMas[i], pointMas[i + 1]);
+                EdgeMas[i] = new Edge(PointMas[i], PointMas[i + 1]);
             }
-            edgeMas[size - 1] = new Edge(pointMas[size - 1], pointMas[0]); //последнее ребро соединяет первую и последнюю точку 
+            EdgeMas[size - 1] = new Edge(PointMas[size - 1], PointMas[0]); //последнее ребро соединяет первую и последнюю точку 
 
             this.length = new double[size];
             for (int i = 0; i < size; i++)
             {
-                length[i] = edgeMas[i].Length;
+                length[i] = EdgeMas[i].Length;
                 if (length[i] == 0 || size < 3)
                 {
                     Console.WriteLine("Ваш многоугольник не существует");
@@ -53,9 +53,9 @@ namespace Lab1Triangles
                 double area = 0;
                 for (int i = 0; i < size - 1; i++)
                 {
-                    area += (pointMas[i].X * pointMas[i + 1].Y - pointMas[i].Y * pointMas[i + 1].X);
+                    area += (PointMas[i].X * PointMas[i + 1].Y - PointMas[i].Y * PointMas[i + 1].X);
                 }
-                area += (pointMas[size - 1].X * pointMas[0].Y - pointMas[size - 1].Y * pointMas[0].X);
+                area += (PointMas[size - 1].X * PointMas[0].Y - PointMas[size - 1].Y * PointMas[0].X);
                 return Math.Abs(area / 2);
             }
         }
