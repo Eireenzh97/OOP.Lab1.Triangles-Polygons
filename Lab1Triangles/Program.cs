@@ -54,9 +54,9 @@ namespace Lab1Triangles
                 
                 Random ira = new Random();
                 
-                Point p1 = new Point(ira.Next, ira.Next);
-                Point p2 = new Point(ira.Next, ira.Next);
-                Point p3 = new Point(ira.Next, ira.Next);
+                Point p1 = new Point(ira.Next(0, 20), ira.Next(0, 20));
+                Point p2 = new Point(ira.Next(0, 20), ira.Next(0, 20));
+                Point p3 = new Point(ira.Next(0, 20), ira.Next(0, 20));
 
                 arrTriangle[i] = new Triangle(p1, p2, p3);
 
