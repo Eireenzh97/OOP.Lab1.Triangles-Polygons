@@ -34,8 +34,8 @@ namespace Lab1Triangles
             Polygon polygon = new Polygon(ArrPoint);
             PrintPolygon(ArrPoint);
 
-            Console.WriteLine(polygon.Perimeter);
-            Console.WriteLine(polygon.Area);
+            Console.WriteLine("Периметр многоугольника = {0}", polygon.Perimeter);
+            Console.WriteLine("Площадь многоугольника = {0}", polygon.Area);
 
             Console.Read();
 
