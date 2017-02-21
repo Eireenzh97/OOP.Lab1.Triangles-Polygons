@@ -12,7 +12,7 @@ namespace Lab1Triangles
         private int size;
         private double[] length;
 
-        public Polygon(Point[] pointArray)
+        public Polygon(Point[] PointArray)
         {
             PointMas = PointArray;
             size = PointMas.Length;
