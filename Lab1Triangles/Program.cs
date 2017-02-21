@@ -32,7 +32,7 @@ namespace Lab1Triangles
             int size = Convert.ToInt32(Console.ReadLine());
             Point[] ArrPoint = ArrayOfPoints(size);
             Polygon polygon = new Polygon(ArrPoint);
-            PrintPolygon(arrPoint);
+            PrintPolygon(ArrPoint);
 
             Console.WriteLine(polygon.Perimeter);
             Console.WriteLine(polygon.Area);
