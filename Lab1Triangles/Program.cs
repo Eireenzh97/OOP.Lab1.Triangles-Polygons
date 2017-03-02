@@ -10,6 +10,7 @@ namespace Lab1Triangles
     {
         static void Main(string[] args)
         {
+            //===============================================================
             Point p1 = new Point(0, 0);
             Point p2 = new Point(0, 6);
             Point p3 = new Point(5, 0);
@@ -22,6 +23,8 @@ namespace Lab1Triangles
                 Console.WriteLine("Треугольник - прямоугольный");
             if (triangle.IsIsosceles)
                 Console.WriteLine("Треугольник - равнобедренный");
+
+            //======================================================================
 
             Console.WriteLine("Введите количество треугольников в массиве: ");
             int count = Convert.ToInt32(Console.ReadLine());
@@ -43,31 +46,23 @@ namespace Lab1Triangles
 
         static bool Exist(Edge e1, Edge e2, Edge e3)
         {
-            
-            
-                return e1.Length >= e2.Length + e3.Length ||
+            return e1.Length >= e2.Length + e3.Length ||
                    e2.Length >= e1.Length + e3.Length ||
                    e3.Length >= e1.Length + e2.Length ||
                    e1.Length == 0 || e2.Length == 0 || e3.Length == 0;
-
-
-
         }
 
 
-            static void ArrayOfTriangles(int count) //=================================================================================
+        static void ArrayOfTriangles(int count) //=================================================================================
         {
             Triangle[] ArrTriangle = new Triangle[count];
             double TrPerimeter = 0, TrArea = 0;
             int CountRight = 0, CountIsosceles = 0;
             for (int i = 0; i < count; i++)
-            {
-                //Point p1 = new Point(0, 0);
-                //Point p2 = new Point(0,0);
-                //Point p3 = new Point(0, 0);
+            { 
                 
-               Random ira = new Random();
-                
+                Random ira = new Random();
+
                 Point p1 = new Point(ira.Next(0, 20), ira.Next(0, 20));
                 Point p2 = new Point(ira.Next(0, 20), ira.Next(0, 20));
                 Point p3 = new Point(ira.Next(0, 20), ira.Next(0, 20));
@@ -76,18 +71,14 @@ namespace Lab1Triangles
                 Edge e2 = new Edge(p2, p3);
                 Edge e3 = new Edge(p1, p3);
 
-                while(Exist(e1,e2,e3) == true)
+                if (Exist(e1,e2,e3) == true)
                 {
                     Console.WriteLine("Треугольник не существует");
-                    
-                    if (i == count - 1)
-                    {
-                        break;
-                    }
-                    i++;
+                    continue;
                 }
 
                 ArrTriangle[i] = new Triangle(p1, p2, p3);
+                
 
                 if (ArrTriangle[i].IsRight)
                 {
@@ -111,6 +102,9 @@ namespace Lab1Triangles
             else
                 Console.WriteLine("Средняя площадь равнобедренных треугольников = 0");
 
+            
+
+            
             
         }
 
