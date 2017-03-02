@@ -21,6 +21,24 @@ namespace Lab1Triangles
             e3 = new Edge(P2, P3);
         }
 
+        public Triangle()
+        {
+            do
+            {
+                Random Ira = new Random();
+                P1 = new Point(Ira.Next(0, 10), Ira.Next(0, 10));
+                P2 = new Point(Ira.Next(0, 10), Ira.Next(0, 10));
+                P3 = new Point(Ira.Next(0, 10), Ira.Next(0, 10));
+            } while (Exist());
+        }
+
+        private bool Exist()
+        {
+            return e1.Length >= e2.Length + e3.Length ||
+                   e2.Length >= e1.Length + e3.Length ||
+                   e3.Length >= e1.Length + e2.Length ||
+                   e1.Length == 0 || e2.Length == 0 || e3.Length == 0;
+        }
         public double Perimeter
         {
             get { return e1.Length + e2.Length + e3.Length; }
