@@ -16,7 +16,6 @@ namespace Lab1Triangles
         Edge e2;
         Edge e3;
 
-
         public Triangle(Point point1, Point point2, Point point3) //================================================================
         {
             this.P1 = point1;

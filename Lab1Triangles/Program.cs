@@ -41,7 +41,21 @@ namespace Lab1Triangles
 
         }
 
-        static void ArrayOfTriangles(int count) //=================================================================================
+        static bool Exist(Edge e1, Edge e2, Edge e3)
+        {
+            
+            
+                return e1.Length <= e2.Length + e3.Length ||
+                   e2.Length <= e1.Length + e3.Length ||
+                   e3.Length <= e1.Length + e2.Length ||
+                   e1.Length != 0 || e2.Length != 0 || e3.Length != 0;
+
+
+
+        }
+
+
+            static void ArrayOfTriangles(int count) //=================================================================================
         {
             Triangle[] ArrTriangle = new Triangle[count];
             double TrPerimeter = 0, TrArea = 0;
@@ -57,6 +71,20 @@ namespace Lab1Triangles
                 Point p1 = new Point(ira.Next(0, 20), ira.Next(0, 20));
                 Point p2 = new Point(ira.Next(0, 20), ira.Next(0, 20));
                 Point p3 = new Point(ira.Next(0, 20), ira.Next(0, 20));
+
+                Edge e1 = new Edge(p1, p2);
+                Edge e2 = new Edge(p2, p3);
+                Edge e3 = new Edge(p1, p3);
+
+                while(!Exist(e1,e2,e3))
+                {
+                    Console.WriteLine("Треугольник не существует");
+                    i++;
+                    if (i == count - 1)
+                    {
+                        break;
+                    }
+                }
 
                 ArrTriangle[i] = new Triangle(p1, p2, p3);
 
