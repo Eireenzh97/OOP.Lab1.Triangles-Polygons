@@ -8,15 +8,9 @@ namespace Lab1Triangles
 {
     class Triangle
     {
-        public Point P1;
-        public Point P2;
-        public Point P3;
-
-        Edge e1;
-        Edge e2;
-        Edge e3;
-
-        public Triangle(Point point1, Point point2, Point point3) //================================================================
+        Point P1, P2, P3;
+        Edge e1, e2, e3;
+        public Triangle(Point point1, Point point2, Point point3)
         {
             this.P1 = point1;
             this.P2 = point2;
@@ -27,16 +21,12 @@ namespace Lab1Triangles
             e3 = new Edge(P2, P3);
         }
 
-
-        public double Perimeter//====================================================================================================
+        public double Perimeter
         {
-            get
-            {
-                return e1.Length + e2.Length + e3.Length;
-            }
+            get { return e1.Length + e2.Length + e3.Length; }
         }
 
-        public double Area//======================================================================================
+        public double Area
         {
             get
             {
@@ -45,7 +35,7 @@ namespace Lab1Triangles
             }
         }
 
-        public bool IsRight//==================================================================================
+        public bool IsRight
         {
             get
             {
@@ -55,7 +45,7 @@ namespace Lab1Triangles
             }
         }
 
-        public bool IsIsosceles//=============================================================================
+        public bool IsIsosceles
         {
             get
             {
