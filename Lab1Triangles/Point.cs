@@ -8,13 +8,15 @@ namespace Lab1Triangles
 {
     class Point
     {
-        public int X;
-        public int Y;
+        int x;
+        int y;
+        public int X { get { return x; } }
+        public int Y { get { return y; } }
 
-        public Point(int x, int y)
+        public Point(int a, int b)
         {
-            this.X = x;
-            this.Y = y;
+            x = a;
+            y = b;
         }
     }
 }

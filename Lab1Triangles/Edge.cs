@@ -8,16 +8,18 @@ namespace Lab1Triangles
 {
     class Edge
     {
-        public Point P1; //1-я точка ребра
-        public Point P2; //2-я точка ребра
+        Point p1; 
+        Point p2; 
+
+        public Point P1 { get { return p1; } }
+        public Point P2 { get { return p2; } }
 
         public Edge(Point p1, Point p2)
         {
-            this.P1 = p1;
-            this.P2 = p2;
+            this.p1 = p1;
+            this.p2 = p2;
         }
-
-        public double Length//длина ребра
+        public double Length
         {
             get
             {
