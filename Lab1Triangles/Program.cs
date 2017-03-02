@@ -45,10 +45,10 @@ namespace Lab1Triangles
         {
             
             
-                return e1.Length <= e2.Length + e3.Length ||
-                   e2.Length <= e1.Length + e3.Length ||
-                   e3.Length <= e1.Length + e2.Length ||
-                   e1.Length != 0 || e2.Length != 0 || e3.Length != 0;
+                return e1.Length >= e2.Length + e3.Length ||
+                   e2.Length >= e1.Length + e3.Length ||
+                   e3.Length >= e1.Length + e2.Length ||
+                   e1.Length == 0 || e2.Length == 0 || e3.Length == 0;
 
 
 
@@ -62,28 +62,29 @@ namespace Lab1Triangles
             int CountRight = 0, CountIsosceles = 0;
             for (int i = 0; i < count; i++)
             {
-                Point p1 = new Point(0, 0);
-                Point p2 = new Point(0,0);
-                Point p3 = new Point(0, 0);
+                //Point p1 = new Point(0, 0);
+                //Point p2 = new Point(0,0);
+                //Point p3 = new Point(0, 0);
                 
-               // Random ira = new Random();
+               Random ira = new Random();
                 
-                //Point p1 = new Point(ira.Next(0, 20), ira.Next(0, 20));
-               // Point p2 = new Point(ira.Next(0, 20), ira.Next(0, 20));
-                //Point p3 = new Point(ira.Next(0, 20), ira.Next(0, 20));
+                Point p1 = new Point(ira.Next(0, 20), ira.Next(0, 20));
+                Point p2 = new Point(ira.Next(0, 20), ira.Next(0, 20));
+                Point p3 = new Point(ira.Next(0, 20), ira.Next(0, 20));
 
                 Edge e1 = new Edge(p1, p2);
                 Edge e2 = new Edge(p2, p3);
                 Edge e3 = new Edge(p1, p3);
 
-                while(!Exist(e1,e2,e3))
+                while(Exist(e1,e2,e3) == true)
                 {
                     Console.WriteLine("Треугольник не существует");
-                    i++;
+                    
                     if (i == count - 1)
                     {
                         break;
                     }
+                    i++;
                 }
 
                 ArrTriangle[i] = new Triangle(p1, p2, p3);
