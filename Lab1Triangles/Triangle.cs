@@ -12,7 +12,13 @@ namespace Lab1Triangles
         public Point P2;
         public Point P3;
 
-        double e1_len, e2_len, e3_len;
+        Edge e1;
+        Edge e2;
+        Edge e3;
+
+
+
+
 
         public Triangle(Point point1, Point point2, Point point3) //================================================================
         {
@@ -20,28 +26,37 @@ namespace Lab1Triangles
             this.P2 = point2;
             this.P3 = point3;
 
-            Edge e1 = new Edge(P1, P2);
-            Edge e2 = new Edge(P1, P3);
-            Edge e3 = new Edge(P2, P3);
+            e1 = new Edge(P1, P2);
+            e2 = new Edge(P1, P3);
+            e3 = new Edge(P2, P3);
 
-            e1_len = e1.Length; 
-            e2_len = e2.Length;
-            e3_len = e3.Length;
-
-            if (e1_len >= e2_len + e3_len || 
-                e2_len >= e1_len + e3_len || 
-                e3_len >= e1_len + e2_len || 
-                e1_len == 0 || e2_len == 0 || e3_len == 0)
+            if (e1.Length >= e2.Length + e3.Length ||
+                e2.Length >= e1.Length + e3.Length ||
+                e3.Length >= e1.Length + e2.Length ||
+                e1.Length == 0 || e2.Length == 0 || e3.Length == 0)
             {
                 Console.WriteLine("Треугольник не существует");
             }
         }
 
+        static bool Exist
+        {
+            get
+            {
+                return e1.Length >= e2.Length + e3.Length ||
+                  e2.Length >= e1.Length + e3.Length ||
+                  e3.Length >= e1.Length + e2.Length ||
+                  e1.Length == 0 || e2.Length == 0 || e3.Length == 0;
+               
+            }
+        }
+
+
         public double Perimeter//====================================================================================================
         {
             get
             {
-                return e1_len + e2_len + e3_len;
+                return e1.Length + e2.Length + e3.Length;
             }
         }
 
@@ -50,7 +65,7 @@ namespace Lab1Triangles
             get
             {
                 double p = Perimeter / 2;
-                return Math.Sqrt(p * (p - e1_len) * (p - e2_len) * (p - e3_len));
+                return Math.Sqrt(p * (p - e1.Length) * (p - e2.Length) * (p - e3.Length));
             }
         }
 
@@ -58,9 +73,9 @@ namespace Lab1Triangles
         {
             get
             {
-                return e1_len == Math.Sqrt(Math.Pow(e2_len, 2) + Math.Pow(e3_len, 2)) ||
-                       e2_len == Math.Sqrt(Math.Pow(e1_len, 2) + Math.Pow(e3_len, 2)) ||
-                       e3_len == Math.Sqrt(Math.Pow(e1_len, 2) + Math.Pow(e2_len, 2));
+                return e1.Length == Math.Sqrt(Math.Pow(e2.Length, 2) + Math.Pow(e3.Length, 2)) ||
+                       e2.Length == Math.Sqrt(Math.Pow(e1.Length, 2) + Math.Pow(e3.Length, 2)) ||
+                       e3.Length == Math.Sqrt(Math.Pow(e1.Length, 2) + Math.Pow(e2.Length, 2));
             }
         }
 
