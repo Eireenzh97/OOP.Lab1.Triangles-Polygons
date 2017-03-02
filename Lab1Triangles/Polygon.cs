@@ -63,7 +63,7 @@ namespace Lab1Triangles
 
 
 }
-}
+
         
 
     

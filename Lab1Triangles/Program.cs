@@ -62,15 +62,15 @@ namespace Lab1Triangles
             int CountRight = 0, CountIsosceles = 0;
             for (int i = 0; i < count; i++)
             {
-                //Point p1 = new Point(0, 5);
-               // Point p2 = new Point(5, 5);
-                //Point p3 = new Point(0, 0);
+                Point p1 = new Point(0, 0);
+                Point p2 = new Point(0,0);
+                Point p3 = new Point(0, 0);
                 
-                Random ira = new Random();
+               // Random ira = new Random();
                 
-                Point p1 = new Point(ira.Next(0, 20), ira.Next(0, 20));
-                Point p2 = new Point(ira.Next(0, 20), ira.Next(0, 20));
-                Point p3 = new Point(ira.Next(0, 20), ira.Next(0, 20));
+                //Point p1 = new Point(ira.Next(0, 20), ira.Next(0, 20));
+               // Point p2 = new Point(ira.Next(0, 20), ira.Next(0, 20));
+                //Point p3 = new Point(ira.Next(0, 20), ira.Next(0, 20));
 
                 Edge e1 = new Edge(p1, p2);
                 Edge e2 = new Edge(p2, p3);
