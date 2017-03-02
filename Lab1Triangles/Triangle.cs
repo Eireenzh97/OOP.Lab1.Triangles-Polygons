@@ -17,9 +17,6 @@ namespace Lab1Triangles
         Edge e3;
 
 
-
-
-
         public Triangle(Point point1, Point point2, Point point3) //================================================================
         {
             this.P1 = point1;
@@ -29,26 +26,6 @@ namespace Lab1Triangles
             e1 = new Edge(P1, P2);
             e2 = new Edge(P1, P3);
             e3 = new Edge(P2, P3);
-
-            if (e1.Length >= e2.Length + e3.Length ||
-                e2.Length >= e1.Length + e3.Length ||
-                e3.Length >= e1.Length + e2.Length ||
-                e1.Length == 0 || e2.Length == 0 || e3.Length == 0)
-            {
-                Console.WriteLine("Треугольник не существует");
-            }
-        }
-
-        static bool Exist
-        {
-            get
-            {
-                return e1.Length >= e2.Length + e3.Length ||
-                  e2.Length >= e1.Length + e3.Length ||
-                  e3.Length >= e1.Length + e2.Length ||
-                  e1.Length == 0 || e2.Length == 0 || e3.Length == 0;
-               
-            }
         }
 
 
@@ -83,7 +60,7 @@ namespace Lab1Triangles
         {
             get
             {
-                return e1_len == e2_len || e2_len == e3_len || e1_len == e3_len;
+                return e1.Length == e2.Length || e2.Length == e3.Length || e1.Length == e3.Length;
             }
         }
 
