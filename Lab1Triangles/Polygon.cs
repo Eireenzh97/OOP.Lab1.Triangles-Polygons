@@ -31,6 +31,7 @@ namespace Lab1Triangles
                 if (length[i] == 0 || size < 3)
                 {
                     Console.WriteLine("Ваш многоугольник не существует");
+                    throw new ArgumentException();
                 }
             }
         }
