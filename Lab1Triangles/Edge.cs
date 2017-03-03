@@ -23,7 +23,7 @@ namespace Lab1Triangles
         {
             get
             {
-                return Math.Sqrt(Math.Pow((P2.X - P1.X), 2) + Math.Pow((P2.Y - P1.Y), 2));
+                return Math.Sqrt(Math.Pow((p2.X - p1.X), 2) + Math.Pow((p2.Y - p1.Y), 2));
             }
         }
 
