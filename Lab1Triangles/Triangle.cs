@@ -8,8 +8,8 @@ namespace Lab1Triangles
 {
     class Triangle
     {
-        Point P1, P2, P3;
-        Edge e1, e2, e3;
+        public Point P1, P2, P3;
+        public Edge e1, e2, e3; 
         public Triangle(Point point1, Point point2, Point point3)
         {
             this.P1 = point1;
@@ -19,6 +19,41 @@ namespace Lab1Triangles
             e1 = new Edge(P1, P2);
             e2 = new Edge(P1, P3);
             e3 = new Edge(P2, P3);
+        }
+
+        public Triangle()
+        {
+            Random gen = new Random();
+           
+            do
+            {
+                Point P1 = new Point(gen.Next(0, 10), gen.Next(0, 10));
+                Point P2 = new Point(gen.Next(0, 10), gen.Next(0, 10));
+                Point P3 = new Point(gen.Next(0, 10), gen.Next(0, 10));
+
+                e1 = new Edge(P1, P2);
+                e2 = new Edge(P2, P3);
+                e3 = new Edge(P3, P1);
+
+            } while (Exist());
+
+            
+        }
+        private bool Exist()
+        {
+            if (!(e1.Length < e2.Length + e3.Length &&
+                   e2.Length < e1.Length + e3.Length &&
+                   e3.Length < e1.Length + e2.Length &&
+                   e1.Length != 0 && e2.Length != 0 && e3.Length != 0 ))
+            {
+                
+                Console.WriteLine("В треугольнике неккоректные координаты");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         public double Perimeter
         {

@@ -10,7 +10,7 @@ namespace Lab1Triangles
     {
         static void Main(string[] args)
         {
-            //===============================================================
+            //===Проверка работоспособности свойств класса Triangle
             Point p1 = new Point(0, 0);
             Point p2 = new Point(0, 6);
             Point p3 = new Point(5, 0);
@@ -24,11 +24,39 @@ namespace Lab1Triangles
             if (triangle.IsIsosceles)
                 Console.WriteLine("Треугольник - равнобедренный");
 
-            //======================================================================
+            //==========Создание массива треугольников
 
-            Console.WriteLine("Введите количество треугольников в массиве: ");
-            int count = Convert.ToInt32(Console.ReadLine());
-            ArrayOfTriangles(count);
+            Triangle[] triangle1 = ArrayOfTriangles(10000);
+
+            double TrPerimeter = 0, TrArea = 0;
+            int CountRight = 0, CountIsosceles = 0;
+
+            for (int i = 0; i < triangle1.Length; i++)
+            {
+                if (triangle1[i].IsRight)
+                {
+                    TrPerimeter = TrPerimeter + triangle1[i].Perimeter;
+                    CountRight++;
+                }
+                if (triangle1[i].IsIsosceles)
+                {
+                    TrArea = TrArea + triangle1[i].Area;
+                    CountIsosceles++;
+                }
+            }
+
+            if (CountRight != 0)
+                Console.WriteLine("Средний периметр прямоугольных треугольников = {0}", TrPerimeter / CountRight);
+            else
+                Console.WriteLine("Средний периметр прямоугольных треугольников = 0");
+
+            if (CountIsosceles != 0)
+                Console.WriteLine("Средняя площадь равнобедренных треугольников {0}", TrArea / CountIsosceles);
+            else
+                Console.WriteLine("Средняя площадь равнобедренных треугольников = 0");
+
+
+
 
             //=================================================================
             Console.WriteLine("Введите количество углов в многоугольнике: ");
@@ -44,68 +72,15 @@ namespace Lab1Triangles
 
         }
 
-        static bool Exist(Edge e1, Edge e2, Edge e3)
-        {
-            return e1.Length >= e2.Length + e3.Length ||
-                   e2.Length >= e1.Length + e3.Length ||
-                   e3.Length >= e1.Length + e2.Length ||
-                   e1.Length == 0 || e2.Length == 0 || e3.Length == 0;
-        }
-
-
-        static void ArrayOfTriangles(int count) //=================================================================================
+        static Triangle[] ArrayOfTriangles(int count) //=================================================================================
         {
             Triangle[] ArrTriangle = new Triangle[count];
-            double TrPerimeter = 0, TrArea = 0;
-            int CountRight = 0, CountIsosceles = 0;
             for (int i = 0; i < count; i++)
-            { 
-                
-                Random ira = new Random();
+            {
+                ArrTriangle[i] = new Triangle();
 
-                Point p1 = new Point(ira.Next(0, 20), ira.Next(0, 20));
-                Point p2 = new Point(ira.Next(0, 20), ira.Next(0, 20));
-                Point p3 = new Point(ira.Next(0, 20), ira.Next(0, 20));
-
-                Edge e1 = new Edge(p1, p2);
-                Edge e2 = new Edge(p2, p3);
-                Edge e3 = new Edge(p1, p3);
-
-                if (Exist(e1,e2,e3) == true)
-                {
-                    Console.WriteLine("Треугольник не существует");
-                    continue;
-                }
-
-                ArrTriangle[i] = new Triangle(p1, p2, p3);
-                
-
-                if (ArrTriangle[i].IsRight)
-                {
-                    TrPerimeter = TrPerimeter + ArrTriangle[i].Perimeter;
-                    CountRight++;
-                }
-                if (ArrTriangle[i].IsIsosceles)
-                {
-                    TrArea = TrArea + ArrTriangle[i].Area;
-                    CountIsosceles++;
-                }
-            }
-
-            if (CountRight != 0)
-                Console.WriteLine("Средний периметр прямоугольных треугольников = {0}", TrPerimeter/CountRight);
-            else
-                Console.WriteLine("Средний периметр прямоугольных треугольников = 0");
-
-            if (CountIsosceles != 0)
-                Console.WriteLine("Средняя площадь равнобедренных треугольников {0}", TrArea/CountIsosceles);
-            else
-                Console.WriteLine("Средняя площадь равнобедренных треугольников = 0");
-
-            
-
-            
-            
+            }  
+                return ArrTriangle;           
         }
 
         static Point[] ArrayOfPoints(int size)//===================================================
